@@ -1,7 +1,7 @@
 clear
 % upload datas for \alpha=0.4 and \varphi=0.5\pi
 datas=load('Gma_D05_alpha04.mat');datas=datas.rho_E_mean_std; 
-indx_W=1:15;
+indx_W=1:18;
 gma=datas(indx_W,:);
 xx=100:100:2000; % decay rates for different N
 WW=10.^(linspace(-2,-0.5,20)).'; % decay rates for different W
@@ -54,6 +54,7 @@ YY=Y(:);
 
 % upload datas for \alpha=0.5 and \varphi=0.4\pi
 datas=load('Gma_D04_alpha05.mat');datas=datas.rho_E_mean_std;
+indx_W=1:20;
 gma=datas(indx_W,:);
 xx=100:100:2000;
 
@@ -84,6 +85,7 @@ Y2 = xi2 .* (L .^ (-1));
 
 % upload datas for \alpha=0.6 and \varphi=0.3\pi
 datas=load('Gma_D03_alpha06.mat');datas=datas.rho_E_mean_std;
+indx_W=1:20;
 gma=datas(indx_W,:);
 xx=100:100:2000;
 
@@ -156,8 +158,8 @@ end
 
 
 xs=linspace(0.17,15,500);
-p=3.5;
-plot(xs,0.265./(1+(xs/5.16).^p).^(1.722/p))
+p=3;
+plot(xs,0.265./(1+(xs/5.56).^p).^(2/p))
 
 ax=gca;
 ax.XScale='log';
@@ -381,4 +383,5 @@ function [b_opt, fval, info] = fitScalingFactorBounded(x_ref, y_ref, x_target, y
         drawnow;
     end
 end
+
 
